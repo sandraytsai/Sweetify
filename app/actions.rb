@@ -14,7 +14,7 @@ helpers do
 end
 
 get '/' do
-  erb :index
+   erb :index
 end
 
 get '/users/signup' do 
@@ -58,8 +58,26 @@ get '/users/logout' do
   redirect '/'
 end 
 
+get '/restaurants/foodimize' do 
+  @restaurant = Restaurant.all.sample 
+  redirect "/restaurants/#{@restaurant.id}"
+end
+
+get '/restaurants_users/:id' do 
+  @restaurant = Restaurant.find(params[:id])
+  current_user.restaurants << @restaurant
+  redirect "/users/favorites"
+end
+
+get '/users/favorites' do
+  erb :'users/favorites'
+end 
 
 
+get '/restaurants/:id' do
+  @restaurant = Restaurant.find(params[:id])
+  erb :'restaurants/show' 
+end 
 
 
 
