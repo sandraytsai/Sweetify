@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
+
   <link rel="stylesheet" href="/stylesheets/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
+  <link rel="stylesheet" href="/stylesheets/materialize.css">
   <link rel="stylesheet" href="/stylesheets/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/javascript/materialize.js"></script>
   <script src="/javascript/application.js"></script>
 
   <title></title>
 </head>
 <body>
+   <nav>
+      <div class="nav-wrapper blue darken-4">
+        <a href="/tracks" class="brand-logo center">Foodimizer</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if not_signed_in? %>
+              <li><a href="/users/login">Login</a></li>
+              <li><a href="/users/signup">Sign Up</a></li>
+            <% else %>
+              <li><span class="nav txt">Welcome, <%=current_user.username %>!</span></li>
+              <li><a href="/users/logout">Logout</a></li>
+            <% end %>
+        </ul>
+      </div>
+    </nav> 
+
   <%= yield %>
 </body>
 </html>
