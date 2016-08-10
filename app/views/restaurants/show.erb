@@ -7,8 +7,10 @@
  <p>
     <%= @restaurant.price_range %> 
  </p>
- 
-<p> <a href="/restaurants_users/<%= @restaurant.id %>" class = "button">Add to Favorites!</a></p>
-
- <hr/>
+    <%if current_user.restaurants.find_by(id: @restaurant.id )%>
+      <p> <a class = "btn disabled">Favorited!</a>
+    <%else%> 
+      <p> <a href="/restaurants_users/<%= @restaurant.id %>" class = "waves-effect waves-light btn">Add to Favorites!</a></p>
+       <hr/>
+    <%end%>
  <a href="/">Back to Home Page</a>
