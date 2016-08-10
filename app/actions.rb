@@ -1,4 +1,18 @@
 # Homepage (Root path)
+helpers do 
+  def current_user
+    User.find_by(id: session[:id])
+  end
+
+  def not_signed_in?
+    session[:id].nil?
+  end
+
+  def current_session_user 
+    session[:id]
+  end 
+end
+
 get '/' do
   erb :index
 end
@@ -9,9 +23,9 @@ end
 
 post '/users' do 
   @user = User.new(
-    username: params[:first_name],
-    email: params[:last_name],
-    password: params[:email],
+    username: params[:username],
+    email: params[:email],
+    password: params[:password],
     )
   if @user.save
     session[:id] = @user.id
@@ -34,7 +48,7 @@ post '/userlogin' do
     redirect '/'
   else 
     session.delete(:id)
-    session[:login_error] = "E-mail or password is invalid! Please try again."
+    session[:login_error] = "Username or password is invalid! Please try again."
     erb :'users/login'
   end
 end 
