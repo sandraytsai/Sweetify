@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160810173614) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
-    t.string   "adress"
+    t.string   "address"
     t.string   "price_range"
     t.datetime "created_at"
     t.datetime "updated_at"
