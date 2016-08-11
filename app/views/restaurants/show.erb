@@ -7,6 +7,7 @@
  <p>
     <%= @restaurant.price_range %> 
  </p>
+
     <%if current_user.restaurants.find_by(id: @restaurant.id )%>
       <p> <a class = "btn disabled">Favorited!</a>
     <%else%> 
