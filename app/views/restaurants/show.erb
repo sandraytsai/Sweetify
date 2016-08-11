@@ -16,3 +16,16 @@
       <%end%>
     <% end %>
  <a href="/">Back to Home Page</a>
+
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+   <ul>
+    <li>Address: <%= @restaurant.address %></li>
+    <li>Price range: <%= @restaurant.price_range %> </li>
+  </ul>
+  <%if current_user.restaurants.find_by(id: @restaurant.id )%>
+    <a class = "btn disabled">Favorited!</a>
+  <%else%> 
+    <a href="/restaurants_users/<%= @restaurant.id %>" class = "waves-effect waves-light btn">Add to Favorites &hearts;</a></p>
+  <%end%>
+</div>
