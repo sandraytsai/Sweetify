@@ -61,9 +61,13 @@ get '/users/logout' do
 end 
 
 get '/restaurants/foodimize' do 
+  session.delete(:tag_error)
   @restaurants = Restaurant.all
+  restaurant = @restaurants.sample
   if params[:search_tag].empty?
-    restaurant = @restaurants.sample
+    redirect "/restaurants/#{restaurant.id}"
+  elsif Tag.find_by(name: params[:search_tag]).nil? 
+    session[:tag_error] = "Sorry, we cannot find any restaurants with #{params[:search_tag]}, but how about..."
     redirect "/restaurants/#{restaurant.id}"
   else
     restaurants = Tag.find_by(name: params[:search_tag]).restaurants

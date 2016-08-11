@@ -1,8 +1,16 @@
 <div class="container">
   <div class="row">
       <div class="col s6">
+<<<<<<< HEAD
         <h1 class="restaurant_info"><%= @restaurant.name %></h1>
          <ul class="restaurant_info">
+=======
+      <% if session[:tag_error] %>
+        <p style="font-weight: bold; padding-top: 1em; text-align: center; font-size: 1.2em;"><%= session[:tag_error] %></p>
+      <% end %>
+        <h1><%= @restaurant.name %></h1>
+         <ul>
+>>>>>>> origin/foodivizer102
           <li><strong>Address:</strong> <%= @restaurant.address %></li>
           <li><strong>Price range:</strong> <%= @restaurant.price_range %> </li>
         </ul>
