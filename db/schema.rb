@@ -17,6 +17,9 @@ ActiveRecord::Schema.define(version: 20160810173614) do
     t.string   "name"
     t.string   "address"
     t.string   "price_range"
+    t.string   "img_1"
+    t.string   "img_2"
+    t.string   "img_3"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

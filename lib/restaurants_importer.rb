@@ -9,7 +9,7 @@ class RestaurantsImporter
       bubble_tea = Tag.create(name: "bubble tea")
 
 
-        r1 = Restaurant.create(name:'Bang Bang Ice Cream & Bakery', address: '93a Ossington Avenue
+        r1 = Restaurant.create(name:'Bang Bang Ice Cream & Bakery', address: '93 Ossington Avenue
 Toronto, ON M6J 2Z2', price_range:'Average')
         r1.tags << frozen_yogurt
         r1.tags << ice_cream

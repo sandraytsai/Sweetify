@@ -4,6 +4,9 @@ class AddRestaurant < ActiveRecord::Migration
       t.string :name 
       t.string :address
       t.string :price_range
+      t.string :img_1
+      t.string :img_2
+      t.string :img_3
       t.timestamps
     end
   end
