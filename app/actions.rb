@@ -59,8 +59,15 @@ get '/users/logout' do
 end 
 
 get '/restaurants/foodimize' do 
-  @restaurant = Restaurant.all.sample 
-  redirect "/restaurants/#{@restaurant.id}"
+  @restaurants = Restaurant.all
+  if params[:search_tag].nil? 
+    restaurant = @restaurants.sample
+    redirect "/restaurants/#{restaurant.id}"
+  else
+    restaurants = Tag.find_by(name: params[:search_tag]).restaurants
+    restaurant = restaurants.sample 
+    redirect "/restaurants/#{restaurant.id}"
+  end
 end
 
 get '/restaurants_users/:id' do 
@@ -78,6 +85,10 @@ get '/restaurants/:id' do
   @restaurant = Restaurant.find(params[:id])
   erb :'restaurants/show' 
 end 
+
+
+
+
 
 
 
