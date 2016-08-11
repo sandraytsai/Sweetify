@@ -1,22 +1,3 @@
-<h1><%= @restaurant.name %></h1>
- 
- <p>
-   Author: <%= @restaurant.address %>
- </p>
- 
- <p>
-    <%= @restaurant.price_range %> 
- </p>
-    <% if !not_signed_in? %>
-      <%if current_user.restaurants.find_by(id: @restaurant.id )%>
-        <p> <a class = "btn disabled">Favorited!</a>
-      <%else%> 
-        <p> <a href="/restaurants_users/<%= @restaurant.id %>" class = "waves-effect waves-light btn">Add to Favorites!</a></p>
-         <hr/>
-      <%end%>
-    <% end %>
- <a href="/">Back to Home Page</a>
-
 <div class="container">
   <h1><%= @restaurant.name %></h1>
    <ul>

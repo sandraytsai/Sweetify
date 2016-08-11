@@ -62,7 +62,7 @@ end
 
 get '/restaurants/foodimize' do 
   @restaurants = Restaurant.all
-  if params[:search_tag].nil? 
+  if params[:search_tag].empty? 
     restaurant = @restaurants.sample
     redirect "/restaurants/#{restaurant.id}"
   else
