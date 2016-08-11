@@ -1,24 +1,25 @@
-<div class="row">
-    <div class="col s6">
-      <h1><%= @restaurant.name %></h1>
-       <ul>
-        <li><strong>Address:</strong> <%= @restaurant.address %></li>
-        <li><strong>Price range:</strong> <%= @restaurant.price_range %> </li>
-      </ul>
-       <% if !not_signed_in? %>
-      <%if current_user.restaurants.find_by(id: @restaurant.id )%>
-        <a class = "btn disabled">Favorited!</a>
-      <%else%> 
-        <a href="/restaurants_users/<%= @restaurant.id %>" class = "waves-effect waves-light btn">Add to Favorites &hearts;</a></p>
-      <%end%>
-    <% end %>
-    </div>
-    <div class="col s6">
-      <iframe style="padding-top: 10%" width="400" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyACD03TDWvPWpOqhCgIDhrcWLoclX5k8qY&q=<%=@restaurant.address%>" allowfullscreen>
-      </iframe>
+<div class="container">
+  <div class="row">
+      <div class="col s6">
+        <h1><%= @restaurant.name %></h1>
+         <ul>
+          <li><strong>Address:</strong> <%= @restaurant.address %></li>
+          <li><strong>Price range:</strong> <%= @restaurant.price_range %> </li>
+        </ul>
+         <% if !not_signed_in? %>
+        <%if current_user.restaurants.find_by(id: @restaurant.id )%>
+          <a class = "btn disabled">Favorited!</a>
+        <%else%> 
+          <a href="/restaurants_users/<%= @restaurant.id %>" class = "waves-effect waves-light btn">Add to Favorites &hearts;</a></p>
+        <%end%>
+      <% end %>
+      </div>
+      <div class="col s6">
+        <iframe style="padding-top: 10%" width="400" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyACD03TDWvPWpOqhCgIDhrcWLoclX5k8qY&q=<%=@restaurant.address%>" allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </div>
 </div>
-
 
 
