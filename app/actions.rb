@@ -6,18 +6,12 @@ helpers do
     User.find_by(id: session[:id])
   end
 
-  # TODO: remove
-  def not_signed_in?
-    !current_session_user
-  end
-
   def current_session_user 
     session[:id]
   end 
 
   def user_has_restaurant?(restaurant)
     results = current_user.restaurants.find_by(id: restaurant.id)
-    # binding.pry
     results
   end
 end
@@ -104,10 +98,6 @@ get '/restaurants/:id' do
   @restaurant = Restaurant.find(params[:id])
   erb :'restaurants/show' 
 end 
-
-
-
-
 
 
 

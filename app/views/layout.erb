@@ -11,20 +11,20 @@
   <script src="/javascript/application.js"></script>
   <script src="/javascript/jquery.superslides.js"></script>
 
-  <title>Foodimizer</title>
+  <title>Sweetify</title>
 </head>
 <body>
    <nav>
       <div class="nav-wrapper pink darken-2">
-        <a href="/" class="brand-logo center"><img src="http://i.imgur.com/G95Diix.png" style="height: 50px; float: left"> Foodimizer</a>
+        <a href="/" class="brand-logo center" style="font-family: Courier New"><img src="http://i.imgur.com/G95Diix.png" style="height: 50px; float: left"> SWEETIFY</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <% if not_signed_in? %>
-              <li><a href="/users/login">Login</a></li>
-              <li><a href="/users/signup">Sign Up</a></li>
-            <% else %>
+            <% if current_session_user  %>
               <li><span style="padding-right: 1em">Welcome, <%=current_user.username %>!</span></li>
               <li><a href="/users/favorites">My Favorites&hearts;</a>
               <li><a href="/users/logout">Logout</a></li>
+            <% else %>
+              <li><a href="/users/login">Login</a></li>
+              <li><a href="/users/signup">Sign Up</a></li>
             <% end %>
         </ul>
       </div>
@@ -38,9 +38,9 @@
         <div class="col l6 s12">
           <h5 class="white-text"><img src="http://i.imgur.com/G95Diix.png" style="height: 130px; float: left; margin-right: 1em"> </h5>
           <span class="grey-text text-lighten-4">
-            Easily discover your new favorite dessert stops with Foodimize. 
+            Easily discover your favorite dessert stops with Sweetify. 
             <br><br>Contact us at 
-            <br>contact@foodimize.com
+            <br>contact@sweeitfy.com
             <br>46 Spadina Avenue, Toronto
           </span>
         </div>
@@ -55,7 +55,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      © 2016 Foodimize
+      © 2016 Sweetify
       </div>
     </div>
   </footer>

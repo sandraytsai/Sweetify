@@ -2,18 +2,20 @@
   <h2>My Favorites:</h2>
   <hr/> 
   <% current_user.restaurants.each do |restaurant| %>
-    <h4><a href="/restaurants/<%=restaurant.id%>"><%= restaurant.name %></a></h4>
-    <ul>
-      <li><%=restaurant.address %></li>
-      <li>Price range: <%=restaurant.price_range %></li>
-    </ul>
-    <form method="post" action="/users/favorites/delete/<%=restaurant.id%>">
-      <input name="_method" type="hidden" value="delete" />
-      <input class="btn-default btn" type="submit" value="Remove from Favorites">
-    </form>
-    <hr/>
+    <div class="card amber lighten-5 left" style="margin: 0.5em; width: 30%">
+      <div class="card-content #424242">
+        <a href="/restaurants/<%=restaurant.id%>"><span class="card-title" style="font-weight: 400; line-height: 70%"><%= restaurant.name %></span></a>
+        <p><%=restaurant.address %></p>
+        <p>Price range: <%=restaurant.price_range %></p>
+      </div> 
+        <form method="post" action="/users/favorites/delete/<%=restaurant.id%>">
+          <input name="_method" type="hidden" value="delete" />
+          <input class="btn-default amber lighten-4 btn" style="color: #616161; width: 100%" type="submit" value="Remove">
+        </form>
+    </div>
   <% end %>
 </div>
+
 
 
 
