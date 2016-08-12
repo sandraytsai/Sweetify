@@ -7,7 +7,25 @@ body {
 main {
   flex: 1 0 auto;
 }
-.restaurant_info, .restaurant_info li, .add_favorite, .map {
-  position: relative;
-  z-index: 100;
+
+footer.page-footer {
+  margin-top: 0px;
+  padding-top: 0px;
+  background-color: #ee6e73;
+}
+
+nav.slides-pagination {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  text-align: center;
+  background-color: transparent;
+  box-shadow: none;
+  width: 100%;
+}
+
+.restaurantinfo {
+  border-radius: 15px;
+  background:#ffffff;
+  background:rgba(255,255,255,0.5);
 }
