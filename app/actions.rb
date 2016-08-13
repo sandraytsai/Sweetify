@@ -67,11 +67,11 @@ get '/restaurants/foodimize' do
   restaurant = @restaurants.sample
   if params[:search_tag].empty?
     redirect "/restaurants/#{restaurant.id}"
-  elsif Tag.find_by(name: params[:search_tag]).nil? 
+  elsif Tag.find_by(name: params[:search_tag].downcase).nil? 
     session[:tag_error] = "Sorry, we cannot find any restaurants with #{params[:search_tag]}, but how about..."
     redirect "/restaurants/#{restaurant.id}"
   else
-    restaurants = Tag.find_by(name: params[:search_tag]).restaurants
+    restaurants = Tag.find_by(name: params[:search_tag].downcase).restaurants
     restaurant = restaurants.sample 
     redirect "/restaurants/#{restaurant.id}"
   end
@@ -89,7 +89,7 @@ end
 
 delete '/users/favorites/delete/:id' do
   @restaurant = current_user.restaurants.find_by(id: params[:id])
-  @restaurant.destroy
+  @restaurant.users.destroy(current_user)
   redirect '/users/favorites'
 end 
 

@@ -1,8 +1,11 @@
-<div class="container">
+<div class="container" style="padding-bottom:8% ; margin: auto">
   <h2>My Favorites:</h2>
   <hr/> 
   <% current_user.restaurants.each do |restaurant| %>
-    <div class="card amber lighten-5 left" style="margin: 0.5em; width: 30%">
+    <div class="card #f5f5f5  left" style="margin: 0.5em; width: 30%">
+      <div class="card-image">
+        <img src="<%=restaurant.img_1%>" style="opacity:0.8; border-radius: 15px 15px 0px 0px" class="materialbox">
+      </div>
       <div class="card-content #424242">
         <a href="/restaurants/<%=restaurant.id%>"><span class="card-title" style="font-weight: 400; line-height: 70%"><%= restaurant.name %></span></a>
         <p><%=restaurant.address %></p>
@@ -10,14 +13,12 @@
       </div> 
         <form method="post" action="/users/favorites/delete/<%=restaurant.id%>">
           <input name="_method" type="hidden" value="delete" />
-          <input class="btn-default amber lighten-4 btn" style="color: #616161; width: 100%" type="submit" value="Remove">
+          <input class="btn-default amber lighten-5 btn" style="color: #616161; width: 100%; border-radius: 0px 0px 15px 15px" type="submit" value="Remove">
         </form>
     </div>
   <% end %>
 </div>
 
-
-
-
+</div>
 
 
