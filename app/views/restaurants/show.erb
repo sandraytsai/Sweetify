@@ -12,7 +12,9 @@
       <!-- if the user is currently logged in -->
       <% if current_session_user %>
         <% if user_has_restaurant?(@restaurant) %>
-          <a class = "btn disabled">Favorited!</a>
+          <a class = "btn disabled">Favorited !</a>
+          <p>
+          <a href="/users/favorites" class = "add_favorite waves-effect waves-light amber lighten-4 btn" style="color: #616161"> Favorites &hearts;</a></p>
         <% else %> 
           <a href="/restaurants_users/<%= @restaurant.id %>" class = "add_favorite waves-effect waves-light amber lighten-4 btn" style="color: #616161">Add to Favorites &hearts;</a></p>
         <% end %>
@@ -37,4 +39,6 @@
   $(document).ready(function() {
     $('#slides').superslides();
   });
+
 </script>
+

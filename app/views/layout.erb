@@ -20,10 +20,16 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <% if current_session_user  %>
               <li><span style="padding-right: 1em">Welcome, <%=current_user.username %>!</span></li>
-              <li><a href="/users/favorites">My Favorites&hearts;</a>
+              <li><a href="/">Home</a></li>
+              <li>|</li>
+              <li><a href="/users/favorites">My Favorites&hearts;</a></li>
+              <li>|</li>
               <li><a href="/users/logout">Logout</a></li>
             <% else %>
+              <li><a href="/">Home</a></li>
+              <li>|</li>
               <li><a href="/users/login">Login</a></li>
+              <li>|</li>
               <li><a href="/users/signup">Sign Up</a></li>
             <% end %>
         </ul>

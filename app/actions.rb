@@ -1,6 +1,5 @@
 # Homepage (Root path)
 use Rack::MethodOverride
-
 helpers do 
   def current_user
     User.find_by(id: session[:id])
@@ -80,9 +79,10 @@ end
 get '/restaurants_users/:id' do 
   @restaurant = Restaurant.find(params[:id])
   current_user.restaurants << @restaurant
-  redirect "/users/favorites" 
+  redirect "/restaurants/#{@restaurant.id}" 
 end
 
+ 
 get '/users/favorites' do
   erb :'users/favorites'
 end 
