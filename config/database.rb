@@ -11,6 +11,7 @@ configure :development, :test do
       }
   else
     set :database, ENV['DATABASE_URL']
+  end
 end
 
 configure :production do
