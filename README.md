@@ -1,10 +1,6 @@
-Sinatra
+Sweetify
 =============
+A random dessert shop generator for the indecisive dessert lovers. Users have the ability to save restaurants to their favourites.
+Built with Ruby, Sinatra, HTML, CSS, and Materialize. 
 
-Brought to you by Lighthouse Labs
-
-## Getting Started
-
-1. `bundle install`
-2. `shotgun -p 3000 -o 0.0.0.0`
-3. Visit `http://localhost:3000/` in your browser
+Check it out [here] ('https://sweetify.herokuapp.com/')
