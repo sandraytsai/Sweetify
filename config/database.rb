@@ -3,14 +3,7 @@ configure :development do
 end
 
 configure :development, :test do
-  if development?
-    set :database, {
-      adapter: "sqlite3",
-      database: "db/db.sqlite3"
-    }
-  else
-    set :database, ENV['DATABASE_URL']
-  end
+
 end
 
 configure :production do
@@ -27,4 +20,15 @@ configure do
     filename = File.basename(model_file).gsub('.rb', '')
     autoload ActiveSupport::Inflector.camelize(filename), model_file
   end
+
+    if development?
+    set :database, {
+      adapter: "sqlite3",
+      database: "db/db.sqlite3"
+    }
+  else
+    set :database, ENV['DATABASE_URL']
+  end
+
+  
 end
