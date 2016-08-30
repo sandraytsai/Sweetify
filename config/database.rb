@@ -7,11 +7,7 @@ configure :development, :test do
 end
 
 configure :production do
-  # Database connection is configured automatically based on the DATABASE_URL
-  # environment variable. This is a feature of sinatra/activerecord support.
-  #
-  # If you're deploying to Heroku this will be set automatically.
-  set :database, ENV['DATABASE_URL']
+
 end
 
 configure do
@@ -27,8 +23,9 @@ configure do
       adapter: "sqlite3",
       database: "db/db.sqlite3"
     }
-  else
+  else {
     set :database, ENV['DATABASE_URL']
+  }
   end
 
   
