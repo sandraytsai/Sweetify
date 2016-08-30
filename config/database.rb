@@ -3,11 +3,26 @@ configure :development do
 end
 
 configure :development, :test do
+  set :database, {
+    'development' => {
+      'adapter' => 'sqlite3',
+      'database' => APP_ROOT.join('db', 'development.sqlite3')
+    },
+    'test' => {
+      'adapter' => 'sqlite3',
+      'database' => APP_ROOT.join('db', 'test.sqlite3')
+    }
+  }
 
 end
 
 configure :production do
-
+  set :database, {
+    'production' => {
+      'adapter' => 'pg',
+      'database' => ENV['DATABASE_URL']
+    }
+  }
 end
 
 configure do
@@ -18,15 +33,15 @@ configure do
     autoload ActiveSupport::Inflector.camelize(filename), model_file
   end
 
-    if development?
-    set :database, {
-      adapter: "sqlite3",
-      database: "db/db.sqlite3"
-    }
-  else {
-    set :database, ENV['DATABASE_URL']
-  }
-  end
+  #   if development?
+  #   set :database, {
+  #     adapter: "sqlite3",
+  #     database: "db/db.sqlite3"
+  #   }
+  # else {
+  #   set :database, ENV['DATABASE_URL']
+  # }
+  # end
 
   
 end
