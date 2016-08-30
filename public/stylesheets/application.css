@@ -1,0 +1,63 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+  
+
+main {
+  flex: 1 0 auto;
+}
+
+footer.page-footer {
+  margin-top: 0px;
+  padding-top: 0px;
+  background-color: #ee6e73;
+}
+
+nav.slides-pagination {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  text-align: center;
+  background-color: transparent;
+  box-shadow: none;
+  width: 100%;
+}
+
+a {
+  color: #424242;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card {
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  transition: box-shadow .25s;
+  border-radius: 15px;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #fce4ec;
+  box-shadow: 0 1px 0 0 #fce4ec;
+}
+
+.restaurantinfo {
+  border-radius: 15px;
+  background:#ffffff;
+  background:rgba(255,255,255,0.5);
+}

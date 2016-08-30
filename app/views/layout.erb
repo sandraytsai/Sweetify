@@ -1,24 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
   <link rel="stylesheet" href="/stylesheets/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
+  <link rel="stylesheet" href="/stylesheets/materialize.css">
   <link rel="stylesheet" href="/stylesheets/application.css">
+  <link rel="stylesheet" href="/stylesheets/superslides.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/javascript/materialize.js"></script>
   <script src="/javascript/application.js"></script>
+  <script src="/javascript/jquery.superslides.js"></script>
 
-  <title></title>
+  <title>Sweetify</title>
 </head>
 <body>
+   <nav>
+      <div class="nav-wrapper pink darken-2">
+        <a href="/" class="brand-logo center" style="font-family: Courier New"><img src="http://i.imgur.com/G95Diix.png" style="height: 50px; float: left"> SWEETIFY</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if current_session_user  %>
+              <li><span style="padding-right: 1em">Welcome, <%=current_user.username %>!</span></li>
+              <li><a href="/users/favorites">My Favorites&hearts;</a>
+              <li><a href="/users/logout">Logout</a></li>
+            <% else %>
+              <li><a href="/users/login">Login</a></li>
+              <li><a href="/users/signup">Sign Up</a></li>
+            <% end %>
+        </ul>
+      </div>
+    </nav> 
+<main>
   <%= yield %>
+</main>
+ <footer class="page-footer pink darken-2">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text"><img src="http://i.imgur.com/G95Diix.png" style="height: 130px; float: left; margin-right: 1em"> </h5>
+          <span class="grey-text text-lighten-4">
+            Easily discover your favorite dessert stops with Sweetify. 
+            <br><br>Contact us at 
+            <br>contact@sweeitfy.com
+            <br>46 Spadina Avenue, Toronto
+          </span>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">discover more </h5>
+          <a href='#'><img src="http://i.imgur.com/iR5swqV.png" height="30px"></a>
+          <a href='#'><img src="http://i.imgur.com/wMiHmPH.png" height="30px"></a>
+          <a href='#'><img src="http://i.imgur.com/uzzzBNp.png" height="30px"></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2016 Sweetify
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
 

@@ -1,0 +1,21 @@
+<div class="container" style="margin-bottom: 2em">
+  <h1>Log in</h1>
+  <hr/>
+  <% if session[:login_error] %>
+    <p><%= session[:login_error] %></p>
+  <% end %>
+  <form method="post" action="/userlogin">
+    <div>
+      <label>Username:</label>
+      <input type="text" name="username" value="<%=params[:username] %>">
+    </div>
+    <div>
+      <label>Password:</label>
+      <input type="password" name="password" value="<%=params[:password]%>">
+    </div>
+    <div>
+      <input type="submit" value="Submit" class="btn waves-effect amber lighten-4 waves-light" style="color: #616161">
+    </div>
+  </form>
+</div>
+
